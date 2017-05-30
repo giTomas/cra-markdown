@@ -1,3 +1,4 @@
-import Article from './article/';
+// import Article from './article/';
+import { Articles, List } from './articlesLinks/';
 
-export { Article };
+export { Articles, List };

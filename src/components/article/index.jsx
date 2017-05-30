@@ -45,9 +45,9 @@ class Article extends React.Component {
   }
 
   async componentWillReceiveProps() {
-      await this.setState({text: null})
-      const text = await requestMd(this.props.match.params.id);
-      this.setState({text});
+        await this.setState({text: null})
+        const text = await requestMd(this.props.match.params.id);
+        this.setState({text});
   }
 
   render() {
