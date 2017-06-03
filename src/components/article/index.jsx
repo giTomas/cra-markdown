@@ -21,7 +21,6 @@ class Article extends React.Component {
     this.state = {
       text: null,
       Markdown:  null,
-      id: null,
     };
   }
 
@@ -37,17 +36,20 @@ class Article extends React.Component {
 
     (() => {
       this.setState({
-        // lazyMarkdown: <Markdown source={text} />,
         Markdown,
         text,
       });
     })();
   }
 
-  async componentWillReceiveProps() {
-        await this.setState({text: null})
-        const text = await requestMd(this.props.match.params.id);
-        this.setState({text});
+  async componentWillReceiveProps(nextProps) {
+        const propsHasChanged = nextProps.match.params.id !== this.props.match.params.id;
+
+        if (propsHasChanged) {
+          await this.setState({text: null})
+          const text = await requestMd(this.props.match.params.id);
+          this.setState({text});
+        }
   }
 
   render() {

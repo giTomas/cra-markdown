@@ -11,7 +11,7 @@ const show = keyframes`
   }
 `;
 
-const show2 = keyframes`
+const showDelayed = keyframes`
   0% {
     opacity: 0;
   }
@@ -56,7 +56,7 @@ const Markdown = styled(ReactMarkdown)`
     margin-bottom: var(--vertical-rhytm);
     color: SlateGrey;
     animation:
-      ${show2} ease-out 1s;
+      ${showDelayed} ease-out 1s;
   }
 `;
 
